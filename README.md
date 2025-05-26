@@ -1,35 +1,41 @@
 # 🌤️ Zephyria Oracle
 
-**Zephyria Oracle** is a simple, Ethereum-based weather oracle system where registered sensors can submit atmospheric data (e.g. temperature, humidity) tied to geographic locations. This data can be accessed by smart contracts and decentralized applications to power parametric insurance, climate modeling, location-based games, and more.
+<img src="assets/zephyria-banner.png" alt="Zephyria Oracle Banner" width="100%" />
+
+**Zephyria Oracle** is a decentralized, on-chain weather oracle powered by IoT sensors. It allows registered devices to submit atmospheric data such as temperature, humidity, and location, making this data publicly accessible for use in insurance, climate tools, and dApps.
+
+---
+
+## 📜 Contract Info
+
+- **Network**: Ethereum / Core / Sepolia / etc.
+- **Contract Address**: `0xf374585a76167634e7c59ea038c70af6bb3a86be`  
 
 ---
 
 ## 📦 Features
 
-- 🔐 **Admin-controlled sensor registration**  
-- 🌍 **Weather data submission by registered sensors**  
-- 🧾 **On-chain record of atmospheric data**  
-- 📡 **Geo-tagged, timestamped data entries**  
-- 📤 **Emits events for off-chain indexing and use**  
+- 🔐 Admin-controlled sensor registration  
+- 🌐 Location-tagged weather submissions  
+- 📊 On-chain historical data  
+- 🧾 Emitted events for indexing  
+- 🔎 Easy access to latest readings  
 
 ---
 
 ## 🛠️ How It Works
 
-### 🔹 Roles
-- **Admin**: The deployer of the contract, allowed to register new sensors.
-- **Sensor**: A trusted device (represented by an Ethereum address) that can submit verified weather data.
-
-### 🔹 Flow
-
-1. Admin registers a sensor with its Ethereum address and a location tag.
-2. The sensor submits a weather data entry (e.g., temperature at a given timestamp and location).
-3. Data is stored on-chain in a public log and accessible through view functions.
-4. Other contracts and dApps can read the latest or historical data.
+1. Admin registers sensor (IoT device or oracle address)
+2. Sensor submits weather data (e.g., temperature in Celsius)
+3. Data stored on-chain and accessible to other dApps
+4. Events allow for efficient off-chain indexing
 
 ---
 
-## 🔐 Smart Contract Summary
+## 📤 Core Functions
 
 ```solidity
-function registerSensor(address sensorAddr, string location) external onlyAdmin
+function registerSensor(address sensor, string location) external
+function submitData(string dataType, int256 value, string geoHash, uint256 timestamp) external
+function getLatestData() external view returns (DataPoint)
+function getDataCount() external view returns (uint256)
