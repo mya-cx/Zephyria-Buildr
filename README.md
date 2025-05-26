@@ -1,6 +1,6 @@
 # 🌤️ Zephyria Oracle
 
-<img src="assets/zephyria-banner.png" alt="Zephyria Oracle Banner" width="100%" />
+<img src="Screenshot 2025-05-26 144441.png" alt="Zephyria Oracle Banner" width="100%" />
 
 **Zephyria Oracle** is a decentralized, on-chain weather oracle powered by IoT sensors. It allows registered devices to submit atmospheric data such as temperature, humidity, and location, making this data publicly accessible for use in insurance, climate tools, and dApps.
 
